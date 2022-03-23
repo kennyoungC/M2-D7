@@ -1,12 +1,4 @@
 `use strict`;
-/*
-       
-        EX16) Write a function to remove the "Search" magnifying glass icon
-        EX17) Write a function to trim just the first 50 characters in the first paragraph for each blog post
-        EX18) Write a function and attach it to the "Newer" button, to add new Blog Post (just div and title)
-        EX19) Write a function and attach it to the "Older" button, to remove the last Blog Post
-        EX20) Write an alert with the name of the author every time the user hover with the mouse over an author name
-    */
 // ? EX11) Write a function to add a new link into the navbar
 const addNewLink = function () {
   const allNavLink = document.querySelectorAll(`.nav-scroller > nav.nav a`);
@@ -43,3 +35,13 @@ const changeColumnSizeForHeading = function () {
   jumbotronHeader.classList.add(`col-md-9`);
 };
 // TODO changeColumnSizeForHeading();
+//?  EX16) Write a function to remove the "Search" magnifying glass icon
+const removeSearch = function () {
+  const Search = document.querySelector(`header a svg `);
+  Search.remove();
+};
+//  TODO removeSearch();
+//? EX17) Write a function to trim just the first 50 characters in the first paragraph for each blog post
+//? EX18) Write a function and attach it to the "Newer" button, to add new Blog Post (just div and title)
+//? EX19) Write a function and attach it to the "Older" button, to remove the last Blog Post
+//? EX20) Write an alert with the name of the author every time the user hover with the mouse over an author name
