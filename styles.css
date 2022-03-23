@@ -1,41 +1,42 @@
-/* EX1) Write a selector to target the h1 in jumbotron */
+/*? EX1) Write a selector to target the h1 in jumbotron */
 .jumbotron h1 {
   background-color: brown;
 }
-/* EX2) Write a selector to target every children of the navbar */
+/*? EX2) Write a selector to target every children of the navbar */
 .nav-scroller > nav.nav a {
   background-color: aqua;
 }
-/* EX3) Write a selector to target the "continue reading..." inside the jumbotron */
+/*? EX3) Write a selector to target the "continue reading..." inside the jumbotron */
 .jumbotron p.lead > a {
   font-size: 24px;
 }
-/* EX4) Write a selector to target the first blogpost */
+/*? EX4) Write a selector to target the first blogpost */
 .row .blog-main div:first-of-type {
   background-color: aqua;
 }
-/* EX5) Write a selector to target the "even" links in the navbar */
+/*? EX5) Write a selector to target the "even" links in the navbar */
 .nav-scroller > nav.nav a:nth-child(even) {
   background-color: yellow;
 }
-/* EX6) Write a selector to target the last blog post */
+/*? EX6) Write a selector to target the last blog post */
 .row .blog-main div:last-of-type {
   background-color: rgb(255, 174, 0);
 }
-/* EX7) Write a selector to target all the li into the first ordered-list in the sidebar ( Archives ) */
+/*? EX7) Write a selector to target all the li into the first ordered-list in the sidebar ( Archives ) */
 aside div h4 + ol.mb-0 li {
   background-color: bisque;
 }
-/* EX8) Write a selector to target the second post author */
+
+/*? EX8) Write a selector to target the second post author */
 .blog-main div:nth-child(3) h2 + p > a {
   font-size: 32px;
   background-color: blue;
 }
-/* EX9) Write a selector to target the "back to top" link     #### EXTRA Try doing it without targeting the footer element directly */
+/*? EX9) Write a selector to target the "back to top" link     #### EXTRA Try doing it without targeting the footer element directly */
 body p:last-child > a {
   background-color: chartreuse;
 }
-/* EX10) Write a selector to target the footer */
+/*? EX10) Write a selector to target the footer */
 .blog-footer {
   background-color: tomato;
 }
