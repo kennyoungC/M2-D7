@@ -1,13 +1,11 @@
 `use strict`;
 // ? EX11) Write a function to add a new link into the navbar
-const addNewLink = function () {
-  const allNavLink = document.querySelectorAll(`.nav-scroller > nav.nav a`);
-  allNavLink.forEach(
-    (link) =>
-      (link.href = `https://getbootstrap.com/docs/4.6/layout/grid/#equal-width-multi-line`)
-  );
+const addNewLink = function (content) {
+  const parent = document.querySelector(`.nav`);
+  const a = ` <a class="p-2 text-muted" href="#">${content}</a>`;
+  parent.innerHTML += a;
 };
-// TODO addNewLink();
+addNewLink(`kenneth`);
 //?  EX12) Write a function to change the color of the main title
 const changeMainTitleColor = function () {
   const title = document.querySelector(`.jumbotron h1 `);
@@ -22,12 +20,16 @@ const changeJumbotronBg = function () {
 // TODO changeJumbotronBg();
 //?  EX14) Write a function to remove all the links under "Elsewhere"
 const removeLink = function () {
-  const linkUnderElsewhere = document.querySelectorAll(
-    `aside div h4 + ol:not(.mb-0) li`
+  // const linkUnderElsewhere = document.querySelectorAll(
+  //   `aside div h4 + ol:not(.mb-0) li`
+  // );
+  // linkUnderElsewhere.forEach((link) => link.remove());
+  const linkUnderElsewhere = document.querySelector(
+    `aside div h4 + ol:not(.mb-0)`
   );
-  linkUnderElsewhere.forEach((link) => link.remove());
+  linkUnderElsewhere.innerHTML = ``;
 };
-// TODO removeLink();
+removeLink();
 //?  EX15) Write a function to change the column size for heading in jumbotron
 const changeColumnSizeForHeading = function () {
   const jumbotronHeader = document.querySelector(`.jumbotron div`);
@@ -42,31 +44,67 @@ const removeSearch = function () {
 };
 //  TODO removeSearch();
 //? EX17) Write a function to trim just the first 50 characters in the first paragraph for each blog post
+const trimPost = function () {
+  const posts = document.querySelectorAll(`.blog-post p:nth-child(3)`);
+  posts.forEach((post) => {
+    const inner = post.innerText;
+    const slicedValue = inner.slice(150);
+    post.innerText = slicedValue;
+    // post.innerText = post.innerText.substring(150);
+  });
+};
+trimPost();
 //? EX18) Write a function and attach it to the "Newer" button, to add new Blog Post (just div and title)
 const addNewBlogPost = function () {
-  const newDiv = document.createElement(`div`);
-  newDiv.innerHTML = ` <h3 class="mb-0">Post title</h3>
-  <div class="mb-1 text-muted">Nov 11</div>
-  <p class="mb-auto">
-    This is a new blog post by kenneth
+  const div = document.createElement(`div`);
+  div.innerHTML = `<div class="blog-post">
+  <h2 class="blog-post-title">NEW BLOG POST</h2>
+  <p class="blog-post-meta">
+  December 23, 2013 by <a href="#">kenneth</a>
   </p>
-  <a href="#" class="stretched-link">Continue reading</a>`;
-  document.querySelector(`div.blog-main`).appendChild(newDiv);
-  console.log(document.querySelector(`div.blog-main`));
+  <p>
+  Cum sociis natoque penatibus et magnis
+  <a href="#">dis parturient montes</a>, nascetur ridiculus mus.
+  Aenean eu leo quam. 
+  </p>
+  </div>`;
+  // const newDiv = `<div class="blog-post">
+  // <h2 class="blog-post-title">NEW BLOG POST</h2>
+  // <p class="blog-post-meta">
+  // December 23, 2013 by <a href="#">kenneth</a>
+  // </p>
+  // <p>
+  // Cum sociis natoque penatibus et magnis
+  // <a href="#">dis parturient montes</a>, nascetur ridiculus mus.
+  // Aenean eu leo quam.
+  // </p>
+  // </div>`;
+  const btnNewer = document.querySelector(
+    `nav.blog-pagination > a:nth-child(2)`
+  );
+  btnNewer.classList.remove(`disabled`);
+  btnNewer.removeAttribute(`href`);
+  btnNewer.addEventListener(`click`, function () {
+    const parent = document.querySelector(`div.blog-main`);
+    // parent.innerHTML += newDiv;
+    parent.append(div);
+  });
 };
+addNewBlogPost();
 const Older = document.querySelector(`nav.blog-pagination > a `);
 Older.addEventListener(`click`, addNewBlogPost);
 //? EX19) Write a function and attach it to the "Older" button, to remove the last Blog Post
-const newer = document.querySelector(`nav.blog-pagination > a:nth-child(2)`);
-newer.classList.remove(`disabled`);
 const removeLastPost = function () {
-  const lastPost = document
-    .querySelector(`.row .blog-main div:last-of-type`)
-    .remove();
-  lastPost.remove();
+  const btnOlder = document.querySelector(
+    `nav.blog-pagination > a:nth-child(1)`
+  );
+  btnOlder.removeAttribute(`href`);
+  btnOlder.addEventListener(`click`, function () {
+    const Blogs = document.querySelectorAll(`.blog-post`);
+    Blogs[Blogs.length - 1].remove();
+  });
 };
-
-newer.addEventListener(`click`, removeLastPost);
+removeLastPost();
 
 //? EX20) Write an alert with the name of the author every time the user hover with the mouse over an author name
 const authors = document.querySelectorAll(`.blog-post-meta > a`);

@@ -16,14 +16,14 @@
 }
 /*? EX5) Write a selector to target the "even" links in the navbar */
 .nav-scroller > nav.nav a:nth-child(even) {
-  background-color: yellow;
+  /* background-color: yellow; */
 }
 /*? EX6) Write a selector to target the last blog post */
-/* .row .blog-main div:last-of-type {
+.row .blog-main div:last-of-type {
   background-color: rgb(255, 174, 0);
-} */
+}
 /*? EX7) Write a selector to target all the li into the first ordered-list in the sidebar ( Archives ) */
-aside div h4 + ol.mb-0 li {
+aside.blog-sidebar div h4 + ol.mb-0 li {
   background-color: bisque;
 }
 
