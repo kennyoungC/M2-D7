@@ -19,9 +19,9 @@
   background-color: yellow;
 }
 /*? EX6) Write a selector to target the last blog post */
-.row .blog-main div:last-of-type {
+/* .row .blog-main div:last-of-type {
   background-color: rgb(255, 174, 0);
-}
+} */
 /*? EX7) Write a selector to target all the li into the first ordered-list in the sidebar ( Archives ) */
 aside div h4 + ol.mb-0 li {
   background-color: bisque;
@@ -48,7 +48,9 @@ body p:last-child > a {
   -ms-user-select: none;
   user-select: none;
 }
-
+.div.blog-main div:last-child {
+  background-color: rgb(255, 174, 0);
+}
 @media (min-width: 768px) {
   .bd-placeholder-img-lg {
     font-size: 3.5rem;

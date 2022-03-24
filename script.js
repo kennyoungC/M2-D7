@@ -43,5 +43,35 @@ const removeSearch = function () {
 //  TODO removeSearch();
 //? EX17) Write a function to trim just the first 50 characters in the first paragraph for each blog post
 //? EX18) Write a function and attach it to the "Newer" button, to add new Blog Post (just div and title)
+const addNewBlogPost = function () {
+  const newDiv = document.createElement(`div`);
+  newDiv.innerHTML = ` <h3 class="mb-0">Post title</h3>
+  <div class="mb-1 text-muted">Nov 11</div>
+  <p class="mb-auto">
+    This is a new blog post by kenneth
+  </p>
+  <a href="#" class="stretched-link">Continue reading</a>`;
+  document.querySelector(`div.blog-main`).appendChild(newDiv);
+  console.log(document.querySelector(`div.blog-main`));
+};
+const Older = document.querySelector(`nav.blog-pagination > a `);
+Older.addEventListener(`click`, addNewBlogPost);
 //? EX19) Write a function and attach it to the "Older" button, to remove the last Blog Post
+const newer = document.querySelector(`nav.blog-pagination > a:nth-child(2)`);
+newer.classList.remove(`disabled`);
+const removeLastPost = function () {
+  const lastPost = document
+    .querySelector(`.row .blog-main div:last-of-type`)
+    .remove();
+  lastPost.remove();
+};
+
+newer.addEventListener(`click`, removeLastPost);
+
 //? EX20) Write an alert with the name of the author every time the user hover with the mouse over an author name
+const authors = document.querySelectorAll(`.blog-post-meta > a`);
+authors.forEach((author) => {
+  author.addEventListener(`mouseover`, function () {
+    alert(author.innerHTML);
+  });
+});
