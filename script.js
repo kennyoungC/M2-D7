@@ -54,20 +54,9 @@ const trimPost = function () {
   });
 };
 trimPost();
+
 //? EX18) Write a function and attach it to the "Newer" button, to add new Blog Post (just div and title)
 const addNewBlogPost = function () {
-  const div = document.createElement(`div`);
-  div.innerHTML = `<div class="blog-post">
-  <h2 class="blog-post-title">NEW BLOG POST</h2>
-  <p class="blog-post-meta">
-  December 23, 2013 by <a href="#">kenneth</a>
-  </p>
-  <p>
-  Cum sociis natoque penatibus et magnis
-  <a href="#">dis parturient montes</a>, nascetur ridiculus mus.
-  Aenean eu leo quam. 
-  </p>
-  </div>`;
   // const newDiv = `<div class="blog-post">
   // <h2 class="blog-post-title">NEW BLOG POST</h2>
   // <p class="blog-post-meta">
@@ -86,11 +75,25 @@ const addNewBlogPost = function () {
   btnNewer.removeAttribute(`href`);
   btnNewer.addEventListener(`click`, function () {
     const parent = document.querySelector(`div.blog-main`);
+    const div = document.createElement(`div`);
+    div.innerHTML = `<div class="blog-post">
+      <h2 class="blog-post-title">NEW BLOG POST</h2>
+      <p class="blog-post-meta">
+      December 23, 2013 by <a href="#">kenneth</a>
+      </p>
+      <p>
+      Cum sociis natoque penatibus et magnis
+      <a href="#">dis parturient montes</a>, nascetur ridiculus mus.
+      Aenean eu leo quam. 
+      </p>
+      </div>`;
     // parent.innerHTML += newDiv;
+    console.log(div);
     parent.append(div);
   });
 };
 addNewBlogPost();
+
 const Older = document.querySelector(`nav.blog-pagination > a `);
 Older.addEventListener(`click`, addNewBlogPost);
 //? EX19) Write a function and attach it to the "Older" button, to remove the last Blog Post
